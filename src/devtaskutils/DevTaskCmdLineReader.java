@@ -1,33 +1,43 @@
+package devtaskutils;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DevTaskCmdLineReader {
 
-    private BufferedReader teader;
-
-    public void DevTaskCmdLineReader() {
-        this.reader = new BufferedRead(new InputStreamReader(System.in));
-    }
-
-    public List<Integer> readIntsUntilExit() {
+    public List<Integer> readIntegers() throws IOException {
         List<Integer> readIntegers = new ArrayList<Integer>();
-        String welcomeString = "Please input integer numbers to get data for devTask.\n" //
-                + "After every entered number press enter to enter another number.\n"
-                + "Typing in \"exit\" and then pressing the enter button will quit\n"
-                + "the command line reading part and proceed to solving the executed devTask.\n";
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        printStartMessage();
 
         String readLine = reader.readLine();
 
-        while(!readline.toUpperCase.equals("EXIT")) {
+        while(!readLine.toUpperCase().equals("EXIT")) {
             try {
-                readIntegers.add(Integers.parstInt(readLine));
+                readIntegers.add(Integer.parseInt(readLine));
             }
             catch(NumberFormatException e) {
-                System.out.println(String.format("Could not parse %s into an integer, please enter an integer this time!\n", readLine);
+                System.out.println(String.format("Could not parse %s into an integer, please enter an integer this time", readLine));
             }
-            finally() {
+            finally {
                 readLine = reader.readLine();
             }
         }
 
+        reader.close();
         return readIntegers;
+    }
+
+    private void printStartMessage() {
+        String startString = "Please input integer numbers to get data for the executed DevTask.\n" //
+                + "After every entered number press enter to enter another number.\n"
+                + "Typing in \"exit\" and then pressing the enter button will quit\n"
+                + "the command line reading part and proceed to solving the executed devTask.\n";
+
+        System.out.println(startString);
     }
 }
