@@ -1,5 +1,7 @@
 package devtaskutils;
 
+import sun.security.pkcs.ParsingException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,8 +12,8 @@ import java.util.Map;
 
 public class GraphCmdLineReader {
 
-    public Map<Integer, Integer> readGraphConnections() throws IOException {
-        Map<Integer, Integer> graphConnections = new HashMap<>();
+    public List<Tuple<Integer, Integer>> readGraphConnections() throws IOException {
+        List<Tuple<Integer, Integer>> graphConnections = new ArrayList<>();
         Integer amountOfConnections = null;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -24,6 +26,7 @@ public class GraphCmdLineReader {
             }
             catch(NumberFormatException e) {
                 System.out.println(String.format("Could not parse %s into an integer, please enter an integer this time", readLine));
+                readLine = reader.readLine();
             }
         }
 
@@ -32,17 +35,18 @@ public class GraphCmdLineReader {
 
         while(amountOfConnections > 0) {
             try {
-                String[] readLineArray = readLine.split(" ");
-                if(readLineArray.length != 3);
-                    //TODO throw
+                readLine = reader.readLine();
+                String[] readLineArray = readLine.split("");
+                if(readLineArray.length != 3)
+                    throw new ParsingException();
 
                 Integer vertex1 = Integer.parseInt(readLineArray[0]);
                 Integer vertex2 = Integer.parseInt(readLineArray[2]);
 
-                graphConnections.put(vertex1, vertex2);
+                graphConnections.add(new Tuple(vertex1, vertex2));
                 amountOfConnections--;
             }
-            catch(NumberFormatException e) {
+            catch(NumberFormatException | ParsingException e){
                 System.out.println(String.format("Could not parse %s into a graph connections, please input two integers separated "
                         + "by a space this time.", readLine));
             }
