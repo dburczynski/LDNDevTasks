@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DevTaskCmdLineReader {
+public class Task1CommandLineReader {
 
     public List<Integer> readIntegers() throws IOException {
         List<Integer> readIntegers = new ArrayList<Integer>();
