@@ -43,8 +43,8 @@ public class GraphCmdLineReader {
                 amountOfConnections--;
             }
             catch(NumberFormatException e) {
-                System.out.println(String.format("Could not parse %s into a graph connections, please input two integers separated " +
-                        "by a space this time.", readLine));
+                System.out.println(String.format("Could not parse %s into a graph connections, please input two integers separated "
+                        + "by a space this time.", readLine));
             }
         }
 
