@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Class representing a Graph
+ */
 public class Graph {
 
     List<Vertex> vertexes;

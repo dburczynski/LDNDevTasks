@@ -1,5 +1,10 @@
 package devtaskutils;
 
+/**
+ * Class representing a tuple
+ * @param <X>
+ * @param <Y>
+ */
 public class Tuple<X, Y> {
     private X x;
     private Y y;

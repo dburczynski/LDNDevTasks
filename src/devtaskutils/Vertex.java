@@ -2,6 +2,9 @@ package devtaskutils;
 
 import java.util.*;
 
+/**
+ * Class representing the vertex of a graph
+ */
 public class Vertex {
 
     private Integer vertex;

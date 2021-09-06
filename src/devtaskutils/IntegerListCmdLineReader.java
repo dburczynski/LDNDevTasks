@@ -6,8 +6,16 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Integer list reader
+ */
 public class IntegerListCmdLineReader {
 
+    /**
+     * Reads one integer after another and returns a list
+     * @return
+     * @throws IOException
+     */
     public List<Integer> readIntegers() throws IOException {
         List<Integer> readIntegers = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

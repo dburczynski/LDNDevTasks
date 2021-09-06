@@ -6,12 +6,18 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+/**
+ * Graph connection reader
+ */
 public class GraphCmdLineReader {
 
+    /**
+     * First reads one integer that tells amount of graph connections to be inputed
+     * @return
+     * @throws IOException
+     */
     public List<Tuple<Integer, Integer>> readGraphConnections() throws IOException {
         List<Tuple<Integer, Integer>> graphConnections = new ArrayList<>();
         Integer amountOfConnections = null;

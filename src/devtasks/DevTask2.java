@@ -8,8 +8,16 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Second dev task
+ */
 public class DevTask2 {
 
+    /**
+     * Gets all numbers in a list that are smaller than 7
+     * @param integerList
+     * @return
+     */
     public List<Integer> filterByLessThanSeven(List<Integer> integerList) {
         if(integerList == null)
             return null;
@@ -18,6 +26,11 @@ public class DevTask2 {
         }
     }
 
+    /**
+     * Gets all numbers in a list that are greater equal 7
+     * @param integerList
+     * @return
+     */
     public List<Integer> filterByGreaterEqualSeven(List<Integer> integerList) {
         if(integerList == null)
             return null;
@@ -26,12 +39,19 @@ public class DevTask2 {
         }
     }
 
+    /**
+     * Returns a list of tuples that elements X + Y = 13
+     * @param lessThanSevenList
+     * @param greaterEqualSevenList
+     * @return
+     */
     public List<Tuple<Integer, Integer>> getPairsThatEqualThirteen(List<Integer> lessThanSevenList, List<Integer> greaterEqualSevenList) {
         List<Tuple<Integer, Integer>> pairsThatEqualThirteen = new ArrayList<>();
 
         Collections.sort(lessThanSevenList);
 
         for(Integer lessThatSeven : lessThanSevenList) {
+            //Greats all possible sums that = 13 and makes a list of tuples
             pairsThatEqualThirteen.addAll(greaterEqualSevenList.stream()
                     .filter(greaterEqualSeven ->  (lessThatSeven + greaterEqualSeven) == 13)
                     .map(greaterEqualSeven -> new Tuple<Integer, Integer>(lessThatSeven, greaterEqualSeven))
